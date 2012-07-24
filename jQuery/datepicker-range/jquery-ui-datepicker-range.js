@@ -4,6 +4,9 @@
  *
  * 먼저 두 개의 <input> 엘리먼트를 받아 각각 시작(from)과 끝(to)을 나타내는 datepicker로 만듭니다.
  * from은 to 날짜 이후를 선택할 수 없으며, to는 from 이전의 날짜를 선택할 수 없게 합니다.
+ *
+ * 날짜 포맷을 dateFormat 프로퍼티로 지정할 수 있습니다. 포맷에 관한 내용은 다음을 참고하세요:
+ * http://docs.jquery.com/UI/Datepicker/formatDate
  * 
  * 제한사항:
  *   셀렉터에 form, to 순으로 엘리먼트를 선택해야 합니다.
