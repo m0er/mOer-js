@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Datepicker-range test page</title>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.21/themes/base/jquery-ui.css" type="text/css" media="all" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+		<script src="jquery-ui-datepicker-range.js" charset="utf-8"></script>
+		<script>
+			$(function() {
+				$(".from, .to").datepickerRange({
+					dateFormat: "yy-mm-dd"
+				});
+				
+				$("#from, #to").datepickerRange();
+			});
+		</script>
+	</head>
+	<body>
+		<label for="from">from:</label>
+		<input name="from" class="from" type="text"/>
+		
+		<label for="to">to:</label>
+		<input name="to" class="to" type="text"/>
+		
+		<br/>
+		
+		<label for="from">from:</label>
+		<input name="from" class="from" type="text"/>
+		
+		<label for="to">to:</label>
+		<input name="to" class="to" type="text"/>
+		
+		<br/>
+		
+		<label for="from">from:</label>
+		<input name="from" id="from" type="text"/>
+		
+		<label for="to">to:</label>
+		<input name="to" id="to" type="text"/>
+	</body>
+</html>
