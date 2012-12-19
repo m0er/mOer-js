@@ -31,6 +31,11 @@
 			opts.column = $contents.size();
 		
 		positioning($row, $contents, opts);
+		
+		// positioning을 사용하면 엘리먼트가 움직이는 모습이 보일 수 있다. 
+		// 포지셔닝이 완료된 후에 보여지길 원한다면 {wrapper: ".some-parent"}를
+		// 추가하고 래퍼 엘리먼트에 visibility: "hidden"을 추가해 두자
+		$(opts.wrapper).css("visibility", "visible");
 	};
 	
 	function positioning($row, $contents, opts) {
@@ -48,6 +53,7 @@
 	$.fn.positioning.defaults = {
 		column: 2,
 		x: "10 0",
-		y: "0 10"
+		y: "0 10",
+		wrapper: "body"
 	};
 })(jQuery);
