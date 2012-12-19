@@ -6,7 +6,7 @@
  *   $("#posts .row, .post").positioning();
  * 
  * Parameters:
- *   column: 컨텐츠를 몇 줄로 배치할지 결정합니다. 디폴트는 2줄 입니다.
+ *   column: 컨텐츠를 한 행에 몇 개씩 배치할지 결정합니다. 디폴트는 한 행에 두 개의 엘리먼트 입니다.
  *   x: 엘리먼트 간의 가로 간격을 지정합니다. 디폴트는 "10 0"
  *   y: 엘리먼트 간의 세로 간격을 지정합니다. 디폴트는 "0 10"
  * 
@@ -26,7 +26,7 @@
 		var $row = this.slice(0, 1);
 		var $contents = this.slice(1, this.length);
 		
-		// 원하는 컬럼 수 보다 엘리먼트가 적을 때
+		// 원하는 열의 수 보다 엘리먼트가 적을 때
 		if ($contents.size() < opts.column)
 			opts.column = $contents.size();
 		
