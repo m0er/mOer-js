@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<section>
+			<dl>
+				<dt>사용중인 브라우저:</dt>
+				<dd id="browser-info"></dd>
+				<dt>OS:</dt>
+				<dd id="os-info"></dd>
+			</dl>
+		</section>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script type="text/javascript">
+			function getBrowserNameAndVersion() {
+				var browser;
+				
+			    if($.browser.mozilla)
+			    	browser = "Firefox";
+			    else if($.browser.msie)
+			    	browser = "Internet Explorer";
+			    else if($.browser.opera)
+			    	browser = "Opera";
+			    else if($.browser.safari)
+			    	browser = "Safari";
+			    else if($.browser.chrome)
+			    	browser = "Chrome";
+			    else
+			      	browser = "Unknown";
+			    
+			    return browser += " " + $.browser.version;
+			}
+			
+			function getOsNameAndVersion() {
+				var os="Unknown OS";
+			    var appVersion = navigator.appVersion;
+				if (appVersion.indexOf("Win")!=-1) {
+					if (appVersion.indexOf("98") != -1) {
+						os = "Windows 98";
+					} else if (appVersion.indexOf("NT 5.0") != -1 || appVersion.indexOf("2000") != -1) {
+						os = "Windows 2000";
+					} else if (appVersion.indexOf("XP") != -1 || appVersion.indexOf("NT 5.1") != -1) {
+						os = "Windows XP";
+					} else if (appVersion.indexOf("NT 6.0") != -1) {
+						os = "Windows Vista";
+					} else if (appVersion.indexOf("NT 6.1") != -1) {
+						os = "Windows 7";
+					} else if (appVersion.indexOf("NT 6.2") != -1) {
+						os = "Windows 8";
+					} else {
+						os = "Unknown Windows";
+					}
+				} else if (appVersion.indexOf("Mac") != -1) {
+					os = "MacOS";
+				} else if (appVersion.indexOf("X11") != -1) {
+					os = "UNIX";
+				} else if (appVersion.indexOf("Linux") != -1) { 
+					os = "Linux";
+				} else if (appVersion.indexOf("Ubuntu") != -1) {
+					os = "Ubuntu";
+				} else if (appVersion.indexOf("Android") != -1) {
+					os = "Android";
+				} else if (appVersion.indexOf("iPhone") != -1) {
+					os = "iPhone";
+				} else if (appVersion.indexOf("iPad") != -1) {
+					os = "iPad";
+				}
+				
+				return os;
+			}
+			
+			$(function() {
+			    $("#browser-info").text(getBrowserNameAndVersion());	
+			    $("#os-info").text(getOsNameAndVersion());
+			});
+		</script>
+	</body>
+</html>
