@@ -1,8 +1,8 @@
 (function($, undefined) {
 	$.initContextUrl = function() {
-		if (CONTEXT_PATH == null || CONTEXT_PATH === "") {
+		if ( CONTEXT_PATH == null || CONTEXT_PATH === "" ) {
 			throw "CONTEXT_PATH가 필요합니다";
-		} if (CONTEXT_PATH === "/") {
+		} else if ( CONTEXT_PATH === "/" ) {
 			return;
 		}
 		
@@ -12,13 +12,23 @@
 		});
 	};
 	
+	$.fn.contextUrl = function() {
+		this.each(function(index, value) {
+			$(this).find("[href], [src], [action]").each(function() {
+				setContextPath($(this));
+			});
+			
+			setContextPath($(this));
+		});
+	};
+	
 	function setContextPath($this) {
-		var raw = $this[0];
-		var attribute = raw.attributes.src || raw.attributes.action || raw.attributes.href;
-		var type = attribute.name;
-		var oldPath = attribute.value;
+		var raw = $this[0],
+			attribute = raw.attributes.src || raw.attributes.action || raw.attributes.href,
+			type = attribute == null ? null : attribute.name,
+			oldPath = attribute == null ? null : attribute.value;
 		
-		if (oldPath.startsWith(CONTEXT_PATH)) {
+		if ( attribute == null || oldPath.startsWith('http://') || oldPath.startsWith('https://') || oldPath.startsWith(CONTEXT_PATH) ) {
 			return;
 		}
 		
@@ -29,10 +39,4 @@
 		var withContextPath = CONTEXT_PATH + oldPath;
 		return withContextPath.replace(/\/\//g, '/');
 	}
-	
-	$.fn.contextUrl = function() {
-		this.each(function(index, value) {
-			setContextPath($(this));
-		});
-	};
 })(jQuery);
